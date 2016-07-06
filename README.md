@@ -33,10 +33,54 @@ All configuration files are optional, and any missing files are simply skipped.
 Configuration files are processed left to right, merging, so right-most files override left. After the ENVCONF_PATH files are loaded,
 the java System getenv items are merged, followed by the java System properties. Finally the ENVCONF_PATH_FINAL files are processed.
 
+###Config file format (edn)
+Config file format is edn with simple values.
+
+```clojure
+{:my_first.key "val1"
+ :MY_other-key 47
+ }
+ ```
+
+ Keys and values are coerced to strings, with keys getting converted to lowercase, with underscores and periods being replaces with dashes.
+ So the above config, ends up being treated as:
+
+
+```clojure
+{:my-first-key "val1"
+ :my-other-key "47"
+ }
+  ```
+
+###Clojure usage
+
+```clojure
+
+(require '[errigal751.envconf.core :as envconf])
+(:java-version envconf/env)
+=> "1.8.0_72"
+
+(envconf/env :maven-opts)
+=> "-Xmx512m -XX:MaxPermSize=128m"
+
+```
+
+###Java usage
+
+```java
+
+import errigal751.envconf.IEnv;
+import errigal751.envconf.EnvConf;
+...
+IEnv xenv = EnvConf.instance();
+String xv = xenv.get("maven-opts");
+
+```
+
+
 ## Credits
 
-- @weavejester, James Reeves, **environ**
-- https://github.com/weavejester/environ
+- *envconf* is based on the **environ** project, @weavejester, James Reeves, https://github.com/weavejester/environ
 
 
 ## License
