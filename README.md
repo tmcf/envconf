@@ -1,6 +1,6 @@
 # envconf
 
-An environment, properties, and config file loader.
+An environment, properties, and config file loader for clojure (and Java).
 
 This project is based substantially on @weavejester's excellent *environ* project.
 
