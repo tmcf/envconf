@@ -92,12 +92,35 @@
 ;;
 (gen-interface
   :name errigal751.envconf.IEnv
-  :methods [[get [String] String]])
+  :methods [[get [String] String]
+            [get [String String] String]
+            [getDouble [String] double]
+            [getDouble [String double] double]
+            [getLong [String] long]
+            [getLong [String long] long]
+            [getBoolean [String] boolean]
+            [getBoolean [String boolean] boolean]
+            ])
 
 ;; Singleton of Java Accessor to env
 ;;
+
+(defn getk [env k & [default]] (get env (keywordize k) default))
+
 (defonce ienv (reify errigal751.envconf.IEnv
-                (get [this key] (get env (keywordize key)))))
+
+                (get [this key] (getk env key))
+                (get [this key default] (getk env key default))
+
+                (getDouble [this key] (getk env key))
+                (getDouble [this key default] (getk env key default))
+
+                (getLong [this key] (getk env key))
+                (getLong [this key default] (getk env key default))
+
+                (getBoolean [this key] (getk env key))
+                (getBoolean [this key default] (getk env key default))
+                ))
 
 
 ;; Java Class with instance() method to get the default IEnv
@@ -110,10 +133,10 @@
   :name errigal751.envconf.EnvConf
   ;:implements [errigal751.envconf.IEnv]
   :prefix "envconf-"
-  :methods [ ^:static [instance [] errigal751.envconf.IEnv]])
+  :methods [^:static [instance [] errigal751.envconf.IEnv]])
 
 
- (defn envconf-instance [] ienv)
+(defn envconf-instance [] ienv)
 
 
 
