@@ -98,6 +98,8 @@
             [getDouble [String double] double]
             [getLong [String] long]
             [getLong [String long] long]
+            [getInt [String] int]
+            [getInt [String int] int]
             [getBoolean [String] boolean]
             [getBoolean [String boolean] boolean]
             ])
@@ -117,6 +119,9 @@
 
                 (getLong [this key] (getk env key))
                 (getLong [this key default] (getk env key default))
+
+                (getInt [this key] (getk env key))
+                (getInt [this key default] (getk env key default))
 
                 (getBoolean [this key] (getk env key))
                 (getBoolean [this key default] (getk env key default))
