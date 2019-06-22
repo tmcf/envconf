@@ -114,17 +114,17 @@
                 (get [this key] (getk env key))
                 (get [this key default] (getk env key default))
 
-                (getDouble [this key] (getk env key))
-                (getDouble [this key default] (getk env key default))
+                (getDouble [this key] (Double/parseDouble (getk env key)))
+                (getDouble [this key default] (Double/parseDouble (getk env key default)))
 
-                (getLong [this key] (getk env key))
-                (getLong [this key default] (getk env key default))
+                (getLong [this key] (Long/parseLong (getk env key)))
+                (getLong [this key default] (Long/parseLong(getk env key default)))
 
-                (getInt [this key] (getk env key))
-                (getInt [this key default] (getk env key default))
+                (getInt [this key] (Integer/parseInt(getk env key)))
+                (getInt [this key default] (Integer/parseInt(getk env key default)))
 
-                (getBoolean [this key] (getk env key))
-                (getBoolean [this key default] (getk env key default))
+                (getBoolean [this key] (Boolean/parseBoolean(getk env key)))
+                (getBoolean [this key default] (Boolean/parseBoolean (getk env key default)))
                 ))
 
 

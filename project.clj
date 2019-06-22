@@ -1,4 +1,4 @@
-(defproject errigal751/envconf "0.1.8"
+(defproject errigal751/envconf "0.1.9"
   :description "Environment and configuration file loader"
   :url "http://www.github.com/tmcf/envconf"
   :license {:name "Eclipse Public License"

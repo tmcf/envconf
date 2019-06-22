@@ -1,11 +1,14 @@
 # Change Log
-##[0.1.18] - 2019-02-13
+## [0.1.19] - 2019-02-17
+- Fix casting issue with convenience methods
+
+## [0.1.18] - 2019-02-13
 - add convenience getInt
 
-##[0.1.5] - 2016-07-06
+## [0.1.5] - 2016-07-06
 - First public github release
 
-##[0.1.1] - 2016-04-24
+## [0.1.1] - 2016-04-24
 - Internal start / no public release
 
 
