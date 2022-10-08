@@ -33,7 +33,7 @@ All configuration files are optional, and any missing files are simply skipped.
 Configuration files are processed left to right, merging, so right-most files override left. After the ENVCONF_PATH files are loaded,
 the java System getenv items are merged, followed by the java System properties. Finally the ENVCONF_PATH_FINAL files are processed.
 
-###Config file format (edn)
+### Config file format (edn)
 Config file format is edn with simple values.
 
 ```clojure
@@ -52,7 +52,7 @@ Config file format is edn with simple values.
  }
   ```
 
-###Clojure usage
+### Clojure usage
 
 ```clojure
 
@@ -65,7 +65,7 @@ Config file format is edn with simple values.
 
 ```
 
-###Java usage
+### Java usage
 
 ```java
 
